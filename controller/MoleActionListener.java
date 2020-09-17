@@ -87,14 +87,17 @@ public class MoleActionListener implements ActionListener, MouseListener {
 	public void mousePressed(MouseEvent e) {
 		pos = panel.getCanvas().getCurrent();
 		if (e.getX() >= pos.x && e.getX() <= (pos.x + 46) && e.getY() >= pos.y && e.getY() <= (pos.y + 46)) {
-			++points;
-			panel.getPoints().setText("Points : " + points);
-			panel.getCanvas().repaint();
-			if (points == maxPoints) {
-				panel.setGameState(GameState.GAMEOVER);
-				panel.getCanvas().getTimer().stop();
-				panel.getCanvas().getMoleTimer().stop();
+			if (panel.getGameState() != WhackAMolePanel.GameState.GAMEOVER) {
+				++points;
+				panel.getPoints().setText("Points : " + points);
 				panel.getCanvas().repaint();
+
+				if (points == maxPoints) {
+					panel.setGameState(GameState.GAMEOVER);
+					panel.getCanvas().getTimer().stop();
+					panel.getCanvas().getMoleTimer().stop();
+					panel.getCanvas().repaint();
+				}
 			}
 		}
 	}
