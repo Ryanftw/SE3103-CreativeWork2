@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		JFrame window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setLocation(550, 80);
+		window.setLocation(550, 20);
 		var menu = new WhackAMolePanel(window);
 		menu.init();
 		window.pack();

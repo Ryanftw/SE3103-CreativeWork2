@@ -24,12 +24,13 @@ public class WhackAMolePanel {
 	private WhackAMoleCanvas canvas;
 	private JFrame window;
 	private JButton newGame = new JButton("Play Game");
-	private JButton exit = new JButton("Exit");
+	private JButton exit = new JButton("Start Screen");
 	private JRadioButton levelOne = new JRadioButton("Easy");
 	private JRadioButton levelTwo = new JRadioButton("Medium");
 	private JRadioButton levelThree = new JRadioButton("Hard");
 	private JRadioButton levelFour = new JRadioButton("Impossible");
 	private JLabel time = new JLabel("Time : 60");
+	private JLabel points = new JLabel("Points : 0");
 	private GameState state = GameState.READY;
 
 	public WhackAMolePanel(JFrame window) {
@@ -64,14 +65,6 @@ public class WhackAMolePanel {
 		TitledBorder title = BorderFactory.createTitledBorder("Difficulty");
 		radioPanel.setBorder(title);
 
-		// canvas = new WhackAMoleCanvas(this);
-		// cp.add(BorderLayout.CENTER, canvas);
-
-		// JPanel northPanel = new JPanel();
-		// cp.add(BorderLayout.NORTH, northPanel);
-
-		// northPanel.add(time);
-
 		listener = new MoleActionListener(this);
 		exit.addActionListener(listener);
 		newGame.addActionListener(listener);
@@ -83,9 +76,13 @@ public class WhackAMolePanel {
 		canvas = new WhackAMoleCanvas(this);
 		cp.add(BorderLayout.CENTER, canvas);
 
+		canvas.addMouseListener(listener);
+
 		JPanel northPanel = new JPanel();
 		cp.add(BorderLayout.NORTH, northPanel);
-
+		northPanel.setLayout(new GridLayout(2, 1));
+		northPanel.add(points);
+		points.setFont(new Font("Arial", Font.BOLD, 20));
 		northPanel.add(time);
 		time.setFont(new Font("Arial", Font.BOLD, 28));
 
@@ -137,6 +134,10 @@ public class WhackAMolePanel {
 
 	public void setGameState(WhackAMolePanel.GameState state) {
 		this.state = state;
+	}
+
+	public JLabel getPoints() {
+		return points;
 	}
 
 }
