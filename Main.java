@@ -8,8 +8,7 @@ public class Main {
 		JFrame window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocation(550, 20);
-		var menu = new WhackAMolePanel(window);
-		menu.init();
+		var startScreen = new WhackAMolePanel(window);
 		window.pack();
 		window.setVisible(true);
 

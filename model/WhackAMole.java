@@ -2,7 +2,6 @@ package model;
 
 public class WhackAMole {
 
-	private int winningPoints;
 	private Pos[] p = new Pos[16];
 
 	public class Pos {

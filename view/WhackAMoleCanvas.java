@@ -5,15 +5,10 @@ import javax.swing.JPanel;
 import model.WhackAMole;
 import model.WhackAMole.Pos;
 import javax.swing.Timer;
-
-import controller.MoleActionListener;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Shape;
-import java.awt.geom.Ellipse2D;
 
 public class WhackAMoleCanvas extends JPanel {
 
@@ -28,14 +23,12 @@ public class WhackAMoleCanvas extends JPanel {
 	private Graphics2D g2;
 	private Timer timer;
 	private Timer moleTimer;
-	private Ellipse2D[] circle;
 	private int points = 0;
 
 	public WhackAMoleCanvas(WhackAMolePanel panel) {
 		this.panel = panel;
 		setPreferredSize(new Dimension(WIDTH, LENGTH));
 		setBackground(Color.BLACK);
-		circle = new Ellipse2D[16];
 	}
 
 	@Override

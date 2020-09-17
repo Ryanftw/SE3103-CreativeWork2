@@ -35,9 +35,7 @@ public class WhackAMolePanel {
 
 	public WhackAMolePanel(JFrame window) {
 		this.window = window;
-	}
 
-	public void init() {
 		Container cp = window.getContentPane();
 		JPanel southPanel = new JPanel();
 

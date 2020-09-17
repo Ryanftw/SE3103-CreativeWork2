@@ -41,7 +41,6 @@ public class MoleActionListener implements ActionListener, MouseListener {
 			JFrame window = panel.getWindow();
 			window.getContentPane().removeAll();
 			var startScreen = new WhackAMolePanel(window);
-			startScreen.init();
 			window.pack();
 			window.revalidate();
 		} else if (source == panel.getLevel1()) {
